@@ -25,7 +25,7 @@ class Main extends React.Component{
     render(){
       return (
         <div style={{textAlign:"center"}}>
-          <button onClick={this.getAllLabels.bind(this)}>Get</button>
+          <button onClick={this.getAllLabels.bind(this)}>Get Data</button>
           <button onClick={this.addLabel.bind(this)}>Add</button>
           <button onClick={this.updateLabel.bind(this)}>Update</button>
           <button onClick={this.deleteLabel.bind(this)}>Delete</button>
