@@ -66,3 +66,86 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+>>>>>>>>>Sample Code>>>>>>>>>
+const data = {
+  "RS_AOS_ADHOC": [
+    {
+      "originator": "Monika Ramaswamy",
+      "problemPerCount": 3
+    },
+    {
+      "originator": "Laxmi Nair",
+      "problemPerCount": 4
+    },
+    {
+      "originator": "Mahasweta Nayak",
+      "problemPerCount": 2
+    }
+  ],
+  "RS_AOS_22.7": [],
+  "RS_AOS_21.7": [
+    {
+      "originator": "Monika Ramaswamy",
+      "problemPerCount": 2
+    },
+    {
+      "originator": "Mukta Dahiya",
+      "problemPerCount": 1
+    },
+    {
+      "originator": "Brahmaiah Thoganti",
+      "problemPerCount": 1
+    }
+  ],
+  "RS_AOS_22.6": [],
+  "RS_AOS_20.3": [],
+  "RS_AOS_21.2": [
+    {
+      "originator": "Monika Ramaswamy",
+      "problemPerCount": 1
+    },
+    {
+      "originator": "Mukta Dahiya",
+      "problemPerCount": 7
+    },
+    {
+      "originator": "David Jacob",
+      "problemPerCount": 2
+    },
+    {
+      "originator": "Laxmi Nair",
+      "problemPerCount": 7
+    },
+    {
+      "originator": "Mahasweta Nayak",
+      "problemPerCount": 11
+    }
+  ],
+  "RS_AOS_22.1": [
+    {
+      "originator": "Monika Ramaswamy",
+      "problemPerCount": 1
+    }
+  ],
+  "RS_AOS_20.2": [],
+  "RS_AOS_21.1": []
+};
+var result = [];
+
+for(var key in data){
+  var array = data[key];
+  array.map(item =>{
+    if(result.some(obj => obj.label === item.originator)){
+      var index = result.findIndex(e => e.label === item.originator);
+      var objCopy = result[index];
+      objCopy.data.push(item.problemPerCount);
+      result[index] = objCopy;
+    }else{
+      result.push({"label": item.originator, "data":[item.problemPerCount]});
+    }
+  })
+}
+
+console.log(result);
